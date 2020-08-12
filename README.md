@@ -36,7 +36,7 @@ display.PlotSlices(slices,wtype='lung',nrows=5,ncols=5, step=2)
 </p>
 wtype can be a string from ['lung' , 'bone' , 'liver' , 'tissues'] or a tuple which specifies custom WindowCenter and WindowWidth. </br>
 
-<b> Working with Image data </b></br>
+<br/><br/><b> Working with Image data </b></br>
 <b> Get image in Hounsfield scale:</b>
 ```python
 from ctu import reader, display
