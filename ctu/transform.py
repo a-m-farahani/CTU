@@ -4,6 +4,7 @@ import skimage
 import numpy as np
 
 def BodyMask(img, threshold=-400):
+    in_img = img.copy()
     img_shape = img.shape
     img = ndimage.zoom(img, 256/np.asarray(img.shape), order=0)
     bodymask = img > threshold
@@ -18,4 +19,6 @@ def BodyMask(img, threshold=-400):
         bodymask = ndimage.binary_dilation(bodymask, iterations=1)
     real_scaling = np.asarray(img_shape)/256
     logical_mask = ndimage.zoom(bodymask, real_scaling, order=0)
-    return logical_mask.astype(int)
+    int_mask = logical_mask.astype(int)
+    masked_img = (in_img + abs(in_img.min())) * int_mask
+    return int_mask, masked_img 
