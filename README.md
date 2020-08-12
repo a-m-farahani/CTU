@@ -66,3 +66,15 @@ display.Plot3D(slices, threshold=400)
 <p align="left">
   <img src="https://github.com/a-m-farahani/CTU/blob/master/examples/display_3dplot.jpg" height="300" title="Bone View 3D">
 </p>
+
+
+<br/><b> Mask body part in CT slices</b>
+```python
+from ctu import reader, transform
+slice = reader.ReadSlice("path to a slice")
+img = reader.getWindowedImage(slice, 'lung')
+mask, masked_image = transform.BodyMask(img) 
+```
+<p align="left">
+  <img src="https://github.com/a-m-farahani/CTU/blob/master/examples/bodymask.jpg" height="200" title="Bone View 3D">
+</p>
