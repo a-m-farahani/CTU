@@ -76,5 +76,17 @@ img = reader.getWindowedImage(slice, 'lung')
 mask, masked_image = transform.BodyMask(img) 
 ```
 <p align="left">
-  <img src="https://github.com/a-m-farahani/CTU/blob/master/examples/bodymask.jpg" height="200" title="Bone View 3D">
+  <img src="https://github.com/a-m-farahani/CTU/blob/master/examples/bodymask.jpg" height="250" title="Body Mask">
 </p>
+
+<br/><b> Lung mask of a CT Slice</b>
+```python
+from ctu import reader, transform
+slice = reader.ReadSlice("path to a slice")
+img = reader.getImageHU(slice)
+label, mask, masked_image = transform.LungMask(img) 
+```
+<p align="left">
+  <img src="https://github.com/a-m-farahani/CTU/blob/master/examples/lungmask.jpg" height="250" title="Lung Mask">
+</p>
+K-Means clustering is used to detect different parts in image. "lable" is the output of K-Means clustering and "mask" is the computed lung mask.
